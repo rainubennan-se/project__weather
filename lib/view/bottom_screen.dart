@@ -15,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final _pageController = PageController(initialPage: 0);
 
   /// Controller to handle bottom nav bar and also handles initial page
-  final _controller = NotchBottomBarController(index: 0);
+  // final _controller = NotchBottomBarController(index: 0);
 
   int maxCount = 2;
 
@@ -43,12 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: true,
       bottomNavigationBar: (bottomBarPages.length <= maxCount)
           ? AnimatedNotchBottomBar(
+              pageController: _pageController,
+
               /// Provide NotchBottomBarController
-              notchBottomBarController: _controller,
+              // notchBottomBarController: _controller,
               color: Colors.black,
               showLabel: false,
-              shadowElevation: 5,
-              kBottomRadius: 28.0,
+              // shadowElevation: 5,
+              // kBottomRadius: 28.0,
               // notchShader: const SweepGradient(
               //   startAngle: 0,
               //   endAngle: pi / 2,
@@ -58,9 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
               notchColor: Colors.black,
 
               /// restart app if you change removeMargins
-              removeMargins: false,
-              bottomBarWidth: 500,
-              durationInMilliSeconds: 300,
+              // removeMargins: false,
+              // bottomBarWidth: 500,
+              // durationInMilliSeconds: 300,
               bottomBarItems: const [
                 BottomBarItem(
                   inActiveItem: Icon(
@@ -90,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // log('current selected index $index');
                 _pageController.jumpToPage(index);
               },
-              kIconSize: 24.0,
+              // kIconSize: 24.0,
             )
           : null,
     );

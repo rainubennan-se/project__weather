@@ -33,7 +33,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
         backgroundColor: Colors.black,
       ),
       body: ListView(
-        children: <Widget>[
+        children: [
           if (weatherProvider.weather != null)
             ListView(
               shrinkWrap: true,
@@ -148,10 +148,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             ),
                           ],
                         ),
-                        Text(
-                          '${weatherProvider.weather!.main!.pressure.toString()} hPa',
-                          style: const TextStyle(
-                              fontSize: 20, color: Colors.amber),
+                        Center(
+                          child: Text(
+                            '${weatherProvider.weather!.main!.pressure.toString()} hPa',
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.amber),
+                          ),
                         ),
                       ],
                     ),
