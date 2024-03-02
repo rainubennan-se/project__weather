@@ -7,10 +7,14 @@ class WeatherProvider with ChangeNotifier {
   WeatherModel? _weather;
 
   WeatherModel? get weather => _weather;
-
+  bool isloading = false;
+  String error = '';
+  double? lat;
+  double? lon;
   Future<void> fetchWeather() async {
     print('Provider 00');
     try {
+      isloading = true;
       print('Provider 11');
       LocationPermission permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied ||
@@ -24,11 +28,15 @@ class WeatherProvider with ChangeNotifier {
         final longitude = currentPosition.longitude;
         print(latitude);
         print(longitude);
+        lat = latitude;
+        lon = longitude;
         _weather = await WeatherService().getWeather(latitude, longitude);
         // print(_weather);
+        isloading = false;
         notifyListeners();
       }
     } catch (e) {
+      error = e.toString();
       print(e);
     }
   }
