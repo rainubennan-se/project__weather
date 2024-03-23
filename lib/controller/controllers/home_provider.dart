@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 import 'package:project__weather/controller/service/weather_service.dart';
 import 'package:project__weather/model/weather_model.dart';
 
@@ -11,7 +12,9 @@ class WeatherProvider with ChangeNotifier {
   String error = '';
   double? lat;
   double? lon;
-  Future<void> fetchWeather() async {
+  Future<void> fetchWeather(
+      // double latitude, double longitude
+      ) async {
     print('Provider 00');
     try {
       isloading = true;
@@ -26,8 +29,8 @@ class WeatherProvider with ChangeNotifier {
         final latitude = currentPosition.latitude;
 
         final longitude = currentPosition.longitude;
-        print(latitude);
-        print(longitude);
+        // print(latitude);
+        // print(longitude);
         lat = latitude;
         lon = longitude;
         _weather = await WeatherService().getWeather(latitude, longitude);

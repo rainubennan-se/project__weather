@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project__weather/controller/controllers.dart/provider.dart';
-import 'package:project__weather/controller/controllers.dart/search_provider.dart';
+import 'package:project__weather/controller/controllers/home_provider.dart';
+
+import 'package:project__weather/controller/controllers/search_provider.dart';
 import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -13,13 +14,14 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
   String searchKey = "";
+  
   @override
   void initState() {
     super.initState();
     searchController.addListener(_printLatestValue);
-    final weatherProvider =
-        Provider.of<WeatherProvider>(context, listen: false);
-    weatherProvider.fetchWeather();
+    // final weatherProvider =
+    //     Provider.of<WeatherProvider>(context, listen: false);
+    // weatherProvider.fetchWeather();
   }
 
   void _printLatestValue() {

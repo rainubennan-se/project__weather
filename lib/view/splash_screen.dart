@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:project__weather/controller/controllers/home_provider.dart';
+import 'package:project__weather/controller/location/location_access.dart';
 import 'package:project__weather/view/bottom_screen.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,12 +17,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    
     super.initState();
-    Timer(Duration(seconds: 10), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const MyHomePage()));
-     });
+    final weatherProvider =
+        Provider.of<WeatherProvider>(context, listen: false);
+    weatherProvider.fetchWeather();
+    Timer(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

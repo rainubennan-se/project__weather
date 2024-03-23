@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project__weather/controller/controllers.dart/provider.dart';
+import 'package:project__weather/controller/controllers/home_provider.dart';
+import 'package:project__weather/controller/location/location_access.dart';
+
 import 'package:provider/provider.dart';
 
 class WeatherScreen extends StatefulWidget {
@@ -14,7 +16,10 @@ class _WeatherScreenState extends State<WeatherScreen> {
   void initState() {
     super.initState();
     print('Inside initstate');
-
+    // LocationAccess().locationaccess();
+    // final latitude = LocationAccess().latitude;
+    // print(latitude);
+    // final longitude = LocationAccess().longitude;
     final weatherProvider =
         Provider.of<WeatherProvider>(context, listen: false);
     weatherProvider.fetchWeather();

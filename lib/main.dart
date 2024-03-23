@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project__weather/controller/controllers.dart/provider.dart';
-import 'package:project__weather/controller/controllers.dart/search_provider.dart';
+import 'package:project__weather/controller/controllers/home_provider.dart';
+import 'package:project__weather/controller/controllers/search_provider.dart';
 import 'package:project__weather/view/splash_screen.dart';
 import 'package:provider/provider.dart';
 

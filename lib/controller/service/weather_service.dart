@@ -9,15 +9,19 @@ class WeatherService {
   static const String search =
       'https://api.openweathermap.org/data/2.5/weather';
   Future<WeatherModel> getWeather(double latitude, double longitude) async {
-    final url =
-        '$baseurl/weather?lat=$latitude&lon=$longitude&appid=$APIKEY&units=metric';
-    final response = await http.get(Uri.parse(url));
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      // print(response.statusCode);
-      return WeatherModel.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Failed to load weather data');
+    try {
+      final url =
+          '$baseurl/weather?lat=$latitude&lon=$longitude&appid=$APIKEY&units=metric';
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        // print(response.statusCode);
+        return WeatherModel.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('Failed to load weather data');
+      }
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
