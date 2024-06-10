@@ -18,12 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    final weatherProvider =
-        Provider.of<WeatherProvider>(context, listen: false);
-    weatherProvider.fetchWeather();
-    Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+
+    Timer(const Duration(seconds: 5), () async {
+      await Provider.of<WeatherProvider>(context, listen: false)
+          .fetchWeather()
+          .then((value) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const MyHomePage()));
+      });
     });
   }
 
