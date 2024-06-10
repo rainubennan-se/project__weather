@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project__weather/controller/service/weather_service.dart';
-import 'package:project__weather/model/weather_model.dart';
+import 'package:project__weather/controller/service/weatherservice.dart';
+import 'package:project__weather/model/weathermodel.dart';
 
 class SearchProvider with ChangeNotifier {
   WeatherModel? _weatherModel;

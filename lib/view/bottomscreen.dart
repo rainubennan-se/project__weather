@@ -1,7 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:project__weather/view/home_screen.dart';
-import 'package:project__weather/view/search_screen.dart';
+import 'package:project__weather/view/homescreen.dart';
+import 'package:project__weather/view/searchscreen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

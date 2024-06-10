@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:project__weather/controller/controllers/home_provider.dart';
-import 'package:project__weather/controller/location/location_access.dart';
-import 'package:project__weather/view/bottom_screen.dart';
+import 'package:project__weather/controller/controllers/homeprovider.dart';
+import 'package:project__weather/view/bottomscreen.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 5), () async {
+    Timer(const Duration(seconds: 3), () async {
       await Provider.of<WeatherProvider>(context, listen: false)
           .fetchWeather()
           .then((value) {

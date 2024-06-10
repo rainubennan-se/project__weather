@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project__weather/controller/controllers/home_provider.dart';
+import 'package:project__weather/controller/controllers/homeprovider.dart';
 
-import 'package:project__weather/controller/controllers/search_provider.dart';
+import 'package:project__weather/controller/controllers/searchprovider.dart';
 import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {

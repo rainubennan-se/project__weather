@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project__weather/view/home_screen.dart';
-import 'package:project__weather/view/search_screen.dart';
+import 'package:project__weather/view/homescreen.dart';
+import 'package:project__weather/view/searchscreen.dart';
 
 class BottomNavigationBarExample extends StatefulWidget {
   const BottomNavigationBarExample({super.key});
